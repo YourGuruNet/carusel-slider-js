@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    body {
+      font-family: Arial;
+      margin: 0;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+    .big-img {
+      height: 35rem;
+      vertical-align: middle;
+      object-fit: cover;
+      width: 100%;
+    }
+    .container {
+      position: relative;
+    }
+    .slide {
+      display: none;
+    }
+    .cursor {
+      cursor: pointer;
+    }
+    .prev,
+    .next {
+      cursor: pointer;
+      position: absolute;
+      top: 40%;
+      width: auto;
+      padding: 16px;
+      margin-top: -50px;
+      color: white;
+      font-weight: bold;
+      font-size: 20px;
+      border-radius: 0 3px 3px 0;
+      user-select: none;
+      -webkit-user-select: none;
+    }
+    .next {
+      right: 0;
+      border-radius: 3px 0 0 3px;
+    }
+    .prev:hover,
+    .next:hover {
+      background-color: rgba(0, 0, 0, 0.8);
+    }
+    .row:after {
+      content: '';
+      display: table;
+      clear: both;
+    }
+    .column {
+      float: left;
+      width: 16.66%;
+    }
+    .demo {
+      height: 10rem;
+      opacity: 0.6;
+      width: 100%;
+    }
+    .active,
+    .demo:hover {
+      opacity: 1;
+    }
+  </style>
+  <body>
+    <div class="container">
+      <div class="slide">
+        <img
+          class="big-img"
+          src="https://images.unsplash.com/photo-1465311440653-ba9b1d9b0f5b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1189&q=80"
+        />
+      </div>
+
+      <div class="slide">
+        <img
+          class="big-img"
+          src="https://images.unsplash.com/photo-1465188162913-8fb5709d6d57?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"
+        />
+      </div>
+
+      <div class="slide">
+        <img
+          class="big-img"
+          src="https://images.unsplash.com/photo-1464886538834-d92fb785bb03?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1189&q=80"
+        />
+      </div>
+
+      <div class="slide">
+        <img
+          class="big-img"
+          src="https://images.unsplash.com/photo-1465189684280-6a8fa9b19a7a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"
+        />
+      </div>
+
+      <div class="slide">
+        <img
+          class="big-img"
+          src="https://images.unsplash.com/photo-1463694775559-eea25626346b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80"
+        />
+      </div>
+
+      <div class="slide">
+        <img
+          class="big-img"
+          src="https://images.unsplash.com/photo-1517439964539-53704b7a3f63?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80"
+        />
+      </div>
+
+      <a class="prev" onclick="plusSlides(-1)">❮</a>
+      <a class="next" onclick="plusSlides(1)">❯</a>
+
+      <div class="row">
+        <div class="column">
+          <img
+            class="demo cursor"
+            src="https://images.unsplash.com/photo-1465311440653-ba9b1d9b0f5b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1189&q=80"
+            onclick="currentSlide(1)"
+          />
+        </div>
+        <div class="column">
+          <img
+            class="demo cursor"
+            src="https://images.unsplash.com/photo-1465188162913-8fb5709d6d57?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"
+            onclick="currentSlide(2)"
+          />
+        </div>
+        <div class="column">
+          <img
+            class="demo cursor"
+            src="https://images.unsplash.com/photo-1464886538834-d92fb785bb03?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1189&q=80"
+            onclick="currentSlide(3)"
+          />
+        </div>
+        <div class="column">
+          <img
+            class="demo cursor"
+            src="https://images.unsplash.com/photo-1465189684280-6a8fa9b19a7a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"
+            onclick="currentSlide(4)"
+          />
+        </div>
+        <div class="column">
+          <img
+            class="demo cursor"
+            src="https://images.unsplash.com/photo-1463694775559-eea25626346b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80"
+            onclick="currentSlide(5)"
+          />
+        </div>
+        <div class="column">
+          <img
+            class="demo cursor"
+            src="https://images.unsplash.com/photo-1517439964539-53704b7a3f63?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80"
+            onclick="currentSlide(6)"
+          />
+        </div>
+      </div>
+    </div>
+
+    <script>
+      let slideIndex = 1;
+      showSlides(slideIndex);
+
+      function plusSlides(n) {
+        showSlides((slideIndex += n));
+      }
+
+      function currentSlide(n) {
+        showSlides((slideIndex = n));
+      }
+
+      function showSlides(n) {
+        let i;
+        let slides = document.getElementsByClassName('slide');
+        let dots = document.getElementsByClassName('demo');
+        if (n > slides.length) {
+          slideIndex = 1;
+        }
+        if (n < 1) {
+          slideIndex = slides.length;
+        }
+        for (i = 0; i < slides.length; i++) {
+          slides[i].style.display = 'none';
+        }
+        for (i = 0; i < dots.length; i++) {
+          dots[i].className = dots[i].className.replace(' active', '');
+        }
+        slides[slideIndex - 1].style.display = 'block';
+        dots[slideIndex - 1].className += ' active';
+        captionText.innerHTML = dots[slideIndex - 1].alt;
+      }
+    </script>
+  </body>
+</html>
